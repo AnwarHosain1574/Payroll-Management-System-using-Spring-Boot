@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Assignment</title>
+	<!--/*/ <th:block th:include="layouts/styles :: styles"></th:block> /*/-->
+</head>
+<body>
+	<div class="container mt-4">
+		<!--/*/ <th:block th:include="layouts/navbar :: navbar"></th:block> /*/-->
+<div class="row">
+			<table class="table table-bordered">
+				<tr>
+					<th>ID No</th>
+					<th>Name</th>
+					<th>Rank</th>
+					<th>Salary</th>
+				</tr>
+				<tr th:each="emp:${emplist}">
+					<td th:text="${emp.id}"></td>
+					<td th:text="${emp.name}"></td>
+					<td th:text="${emp.rank}"></td>
+					<td th:text="${emp.salary}"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<!--/*/ <th:block th:include="layouts/scripts :: scripts"></th:block> /*/-->
+</body>
+</html>

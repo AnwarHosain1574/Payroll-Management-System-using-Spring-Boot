@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Assignment</title>
+	<!--/*/ <th:block th:include="layouts/styles :: styles"></th:block> /*/-->
+</head>
+<body>
+	<div class="container mt-4">
+	<!--/*/ <th:block th:include="layouts/navbar :: navbar"></th:block> /*/-->
+		<form th:action="@{/basic/save}" method="post" th:object="${basicobj}">
+		
+			 <div class="form-row">
+			   <div class="form-group col-md-6">
+			      <label>Basic Salary</label>
+			      <input type="hidden" th:field="*{id}">
+			      <input type="number" th:field="*{basic}" min="0" class="form-control" placeholder="Basic Salary">
+			    </div>
+			</div>
+			<div class="form-row">
+			   <div class="form-group col-md-6">
+			      <label>Company Bank Balance</label>
+			      <input type="number" th:field="*{acc_bal}" min="0" class="form-control" placeholder="Company Bank Balance">
+			    </div>
+			</div>
+			<div class="form-row">
+			   <div class="form-group col-md-6">
+			   		<button type="submit" class="btn btn-primary">Save</button>
+			      <a class="btn btn-warning" href="/">Cancel</a>
+			    </div>
+			</div>
+		</form>
+	</div>
+	<!--/*/ <th:block th:include="layouts/scripts :: scripts"></th:block> /*/-->
+</body>
+</html>

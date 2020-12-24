@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Assignment</title>
+	<!--/*/ <th:block th:include="layouts/styles :: styles"></th:block> /*/-->
+</head>
+<body>
+	<div class="container mt-4">
+	<!--/*/ <th:block th:include="layouts/navbar :: navbar"></th:block> /*/-->
+	
+			<form th:action="@{/employee/save}" method="post" th:object="${empobj}">
+			 <div class="form-row">
+			   <div class="form-group col-md-6">
+			      <label>Employee Name</label>
+			      <input type="hidden" th:field="*{id}">
+			      <input type="text" th:field="*{name}" class="form-control" placeholder="Employee Name">
+			    </div>
+			</div>
+			<div class="form-row">
+			   <div class="form-group col-md-6">
+			      <label>Employee Address</label>
+			      <input type="text" th:field="*{address}" class="form-control" placeholder="Employee Address">
+			    </div>
+			</div>
+			
+			<div class="form-row">
+			   <div class="form-group col-md-6">
+			      <label>Employee Mobile</label>
+			      <input type="number" th:field="*{mobile}" class="form-control" placeholder="Employee Mobile Number">
+			    </div>
+			</div>
+			
+			<div class="form-row">
+			   <div class="form-group col-md-6">
+			      <label>Grade/Rank</label>
+			      <select class="form-control" name="grade" required id="grade">
+					<option value="">Select Grade/Rank</option>
+					<option th:each="s : ${gradelist}" th:value="${s.id}" th:text="${s.grade_name}" ></option>
+				  </select>
+			    </div>
+			</div>
+			
+			<div class="form-row">
+			   <div class="form-group col-md-6">
+			      <label>Bank Name</label>
+			      <input type="text" name="bankname" class="form-control" placeholder="Bank Name" required>
+			    </div>
+			</div>
+			
+			<div class="form-row">
+			   <div class="form-group col-md-6">
+			      <label>Bank Branch Name</label>
+			      <input type="text" name="bankbranchname" class="form-control" placeholder="Bank Branch Name" required>
+			    </div>
+			</div>
+			
+			<div class="form-row">
+			   <div class="form-group col-md-6">
+			      <label>Account No</label>
+			      <input type="text" name="accountno" class="form-control" placeholder="Account No" required>
+			    </div>
+			</div>
+			
+			<div class="form-row">
+			   <div class="form-group col-md-6">
+			      <label>Account Type</label>
+			      <select class="form-control" name="acctype" required >
+					<option value="">Select Account Type</option>
+					<option th:value="Savings" th:text="Savings" ></option>
+					<option th:value="Current" th:text="Current" ></option>
+				  </select>
+			    </div>
+			</div>
+			
+			
+			<div class="form-row">
+			   <div class="form-group col-md-6">
+			   		<button type="submit" class="btn btn-primary">Save</button>
+			      <a class="btn btn-warning" href="/">Cancel</a>
+			    </div>
+			</div>
+		</form>
+	
+	</div>
+	<!--/*/ <th:block th:include="layouts/scripts :: scripts"></th:block> /*/-->
+</body>
+</html>

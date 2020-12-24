@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Assignment</title>
+	<!--/*/ <th:block th:include="layouts/styles :: styles"></th:block> /*/-->
+</head>
+<body>
+	<div class="container mt-4">
+		<!--/*/ <th:block th:include="layouts/navbar :: navbar"></th:block> /*/-->
+
+		<h5 th:if="${message =='success'}" class="alert alert-success">Salary Transfered Successful.</h5>
+		<h5 th:if="${message =='error'}" class="alert alert-danger">Sorry! Company have not enough Balance.
+			<a class="badge badge-info" href="/basic-information">Add Money</a>
+		</h5>
+		<div class="h4">
+			<div class="col-md-6">
+				<p>Remaining Bank Balance</p>
+			</div>	
+			<div class="col-md-6">
+				<p th:text="${restofbal}">100</p>
+			</div>	
+		</div><hr><br>
+		
+		<div class="row">
+			<div class="col-md-6">
+				<a href="/salary-transfer" class="btn btn-primary">Salary Transfer</a>
+			</div>	
+			<div class="col-md-6">
+				<a href="/basic-information" class="btn btn-primary">Company Basic Information</a>
+			</div>	
+		</div><br>
+				<div class="row">
+			<div class="col-md-6">
+				<a href="/salary-sheet" class="btn btn-primary">Print Salary Sheet</a>
+			</div>	
+			<div class="col-md-6">
+				<!-- <a href="/remaining-balance" class="btn btn-primary">Remaining</a> -->
+			</div>	
+		</div><br>
+	</div>
+	<!--/*/ <th:block th:include="layouts/scripts :: scripts"></th:block> /*/-->
+</body>
+</html>
